@@ -61,6 +61,18 @@ class LinkedList {
     currNode.next = new _Node(newItem, tempNode.next);
   }
 
+  insertHeadCycle(item){
+    if (this.head === null) {
+      this.insertFirst(item);
+    } else {
+      let tempNode = this.head;
+      while (tempNode.next !== null) {
+        tempNode = tempNode.next;
+      }
+      tempNode.next = new _Node(item, this.head);
+    }
+  }
+
   insertAt(newItem, index) {
     let count = 0;
     let currNode = this.head;
@@ -284,3 +296,34 @@ function displayValues(ll) {
 // }
 
 // console.log(middle(newList));
+
+
+
+// Cycle in a list
+
+
+testList.insertLast(1);
+testList.insertLast(2);
+testList.insertLast(3);
+testList.insertLast(4);
+testList.insertLast(5);
+testList.insertLast(6);
+testList.insertLast(7);
+
+
+
+function cycle(ll) {
+  let tortoise = ll.head;
+  let hare = ll.head;
+  while (hare && hare.next) {
+    tortoise = tortoise.next;
+    hare = hare.next.next;
+    if(tortoise === hare){
+      return true;
+    }
+  }
+  return false;
+}
+
+
+console.log(cycle(testList));
