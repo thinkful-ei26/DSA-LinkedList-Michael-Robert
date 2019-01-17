@@ -180,20 +180,20 @@ class DoublyLinkedList {
     while (currNode !== tempNode) {
       currNode = currNode.next;
     }
-    currNode.next = new _Node(newItem, tempNode.next);
+    currNode.next = new _Node(newItem, tempNode.next,currNode);
   }
 
-  insertHeadCycle(item) {
-    if (this.head === null) {
-      this.insertFirst(item);
-    } else {
-      let tempNode = this.head;
-      while (tempNode.next !== null) {
-        tempNode = tempNode.next;
-      }
-      tempNode.next = new _Node(item, this.head);
-    }
-  }
+  // insertHeadCycle(item) {
+  //   if (this.head === null) {
+  //     this.insertFirst(item);
+  //   } else {
+  //     let tempNode = this.head;
+  //     while (tempNode.next !== null) {
+  //       tempNode = tempNode.next;
+  //     }
+  //     tempNode.next = new _Node(item, this.head);
+  //   }
+  // }
 
   insertAt(newItem, index) {
     let count = 0;
@@ -264,14 +264,16 @@ newList.insertLast('middle');
 newList.insertLast('not really the middle but kinda');
 newList.insertLast("Husker");
 newList.insertLast("Starbuck");
-newList.insertBefore("Tauhida", 'Starbuck');
+newList.insertAfter("Tauhida", 'Husker');
+newList.insertAt('Husker',3);
+
 // newList.insertLast('Starbuck');
 // newList.insertLast('Starbuck');
 // newList.remove('squirrel');
 // newList.insertAt("michael", 3);
 // console.log(newList.find('Helo'));
 
-displayValues(newList);
+// displayValues(newList);
 
 // testList.insertLast(1);
 // testList.insertLast(2);
@@ -451,3 +453,70 @@ function displayValues(ll) {
 
 
 // console.log(cycle(testList));
+
+
+
+// Reverse a Doubly Linked List
+
+function reverse(ll) {
+  let currNode = ll.head;  
+  let placeHolder = null;
+  let targetNode = ll.head;
+  // console.log(currNode);
+  if (currNode === ll.head) {
+    // console.log('IF STATEMENT: ', currNode.value);  ]
+    console.log('IF STATEMENT: ', currNode.previous);  
+    targetNode = currNode.next;
+    currNode.previous = currNode.next;
+    console.log(currNode.next);
+    currNode.next = null;
+    currNode = targetNode;
+  }
+  while(currNode.next !== null){
+    // console.log('tick')
+    placeHolder = currNode.previous;
+    targetNode = currNode.next;
+    currNode.previous = currNode.next;
+    currNode.next = placeHolder;
+    currNode = targetNode;
+  }
+  if (currNode.next === null) {
+    // console.log('If statement END');
+    currNode.next = currNode.previous;
+    currNode.previous = null;  
+    ll.head = currNode;
+  }
+  return ll;
+  
+}
+function reverseList(ll) {
+    let currNode = ll.head;  
+    let prevNode = ll.head;
+    let targetNode = ll.head;
+  
+    if (currNode === ll.head) {
+      console.log('IF STATEMENT: ', currNode.value);  
+      targetNode = currNode.next;
+      currNode.next = null;
+      currNode = targetNode;
+    }
+  
+    while (currNode.next !== null) {
+      console.log('While LOOP: ', currNode.value);  
+      targetNode = currNode.next;
+      currNode.next = prevNode;
+      prevNode = currNode;
+      currNode = targetNode;
+    }
+    if (currNode.next === null) {
+      currNode.next = prevNode;  
+      ll.head = currNode;
+    }
+    return ll;
+  }
+
+  // displayValues(newList);
+  // displayValues(reverseList(newList));
+  displayValues(reverse(newList));
+  // displayValues(newList);
+
