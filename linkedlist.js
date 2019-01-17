@@ -131,6 +131,8 @@ newList.insertLast('Helo');
 newList.insertLast('Husker');
 newList.insertLast('Starbuck');
 newList.insertLast('Tauhida');
+newList.insertLast('Starbuck');
+newList.insertLast('Starbuck');
 // newList.remove('squirrel');
 newList.insertAt('michael', 3);
 // console.log(newList.find('Helo'));
@@ -143,13 +145,13 @@ newList.insertAt('michael', 3);
 //   console.log(ll);
 // }
 
-// function displayValues(ll) {
-//   let currentNode = ll.head;
-//   while(currentNode !== null) {
-//     console.log(currentNode.value);
-//     currentNode = currentNode.next;
-//   }
-// }
+function displayValues(ll) {
+  let currentNode = ll.head;
+  while(currentNode !== null) {
+    console.log(currentNode.value);
+    currentNode = currentNode.next;
+  }
+}
 
 // displayValues(newList);
 
@@ -196,3 +198,33 @@ newList.insertAt('michael', 3);
 // }
 
 // console.log(findLast(newList));
+
+
+// Mystery program
+
+// Analyze the following function (without running it in an IDE) to determine what problem it is trying to solve. What is the runtime of this algorithm?
+
+function WhatDoesThisProgramDo(lst){
+  let current = lst.head;
+  ///
+  while(current !== null){
+      let newNode = current;
+      //
+      while (newNode.next !== null) {
+          if (newNode.next.value === current.value) {
+            // if the first item is equal to the second we replace the second with the third
+              newNode.next = newNode.next.next;
+          }
+          else{
+            // if the first item is not equal to the second then we replace the first with the second
+              newNode = newNode.next;
+          }
+      }
+      //
+      current = current.next;
+  }
+  //
+}
+displayValues(newList);
+WhatDoesThisProgramDo(newList);
+displayValues(newList);
