@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class _Node {
   constructor(value, next) {
@@ -107,39 +107,35 @@ class LinkedList {
     //keep track of previous
     let previousNode = this.head;
 
-    while ((currNode !== null) && (currNode.value !== item)) {
-      //save the previous node 
+    while (currNode !== null && currNode.value !== item) {
+      //save the previous node
       previousNode = currNode;
       currNode = currNode.next;
     }
     if (currNode === null) {
-      console.log('Item not found');
+      console.log("Item not found");
       return;
     }
     previousNode.next = currNode.next;
   }
 }
 
-
-
 const newList = new LinkedList();
 const testList = new LinkedList();
 
-newList.insertLast('Apollo');
-newList.insertLast('Boomer');
-newList.insertLast('Helo');
-newList.insertLast('Husker');
-newList.insertLast('Starbuck');
-newList.insertLast('Tauhida');
+newList.insertLast("Apollo");
+newList.insertLast("Boomer");
+newList.insertLast("Helo");
+newList.insertLast("Husker");
+newList.insertLast("Starbuck");
+newList.insertLast("Tauhida");
 // newList.insertLast('Starbuck');
 // newList.insertLast('Starbuck');
 // newList.remove('squirrel');
-newList.insertAt('michael', 3);
+newList.insertAt("michael", 3);
 // console.log(newList.find('Helo'));
 
 // console.log(newList);
-
-
 
 // function display(ll) {
 //   console.log(ll);
@@ -166,8 +162,6 @@ function displayValues(ll) {
 // }
 
 // console.log(size(newList));
-
-
 
 // function isEmpty(ll) {
 //   if(ll.head === null) {
@@ -199,7 +193,6 @@ function displayValues(ll) {
 
 // console.log(findLast(newList));
 
-
 // Mystery program
 
 // Analyze the following function (without running it in an IDE) to determine what problem it is trying to solve. What is the runtime of this algorithm?
@@ -229,32 +222,44 @@ function displayValues(ll) {
 // WhatDoesThisProgramDo(newList);
 // displayValues(newList);
 
-function reverseList(ll) {
-  let currNode = ll.head;
-  let prevNode = ll.head;
-  let targetNode = ll.head;
+// function reverseList(ll) {
+//   let currNode = ll.head;
+//   let prevNode = ll.head;
+//   let targetNode = ll.head;
 
-  if (currNode === ll.head) {
-    console.log('IF STATEMENT: ', currNode.value);
-    targetNode = currNode.next;
-    currNode.next = null;
-    currNode = targetNode;
-  }
+//   if (currNode === ll.head) {
+//     console.log('IF STATEMENT: ', currNode.value);
+//     targetNode = currNode.next;
+//     currNode.next = null;
+//     currNode = targetNode;
+//   }
 
-  while (currNode.next !== null) {
-    console.log('While LOOP: ', currNode.value);
-    targetNode = currNode.next;
-    currNode.next = prevNode;
-    prevNode = currNode;
-    currNode = targetNode;
-  }
-  if (currNode.next === null) {
-    currNode.next = prevNode;
-    ll.head = currNode;
-  }
-  return ll;
-}
+//   while (currNode.next !== null) {
+//     console.log('While LOOP: ', currNode.value);
+//     targetNode = currNode.next;
+//     currNode.next = prevNode;
+//     prevNode = currNode;
+//     currNode = targetNode;
+//   }
+//   if (currNode.next === null) {
+//     currNode.next = prevNode;
+//     ll.head = currNode;
+//   }
+//   return ll;
+// }
 
-displayValues(newList);
-reverseList(newList);
-displayValues(newList);
+// displayValues(newList);
+// reverseList(newList);
+// displayValues(newList);
+
+// Third from the end
+
+// function thirdEnd(ll) {
+//   let currNode = ll.head;
+//   while (currNode.next.next.next !== null) {
+//     currNode = currNode.next;
+//   }
+//   return currNode;
+// }
+
+// console.log(thirdEnd(newList));
