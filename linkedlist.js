@@ -126,13 +126,15 @@ const testList = new LinkedList();
 newList.insertLast("Apollo");
 newList.insertLast("Boomer");
 newList.insertLast("Helo");
+newList.insertLast('middle');
+newList.insertLast('not really the middle but kinda');
 newList.insertLast("Husker");
 newList.insertLast("Starbuck");
 newList.insertLast("Tauhida");
 // newList.insertLast('Starbuck');
 // newList.insertLast('Starbuck');
 // newList.remove('squirrel');
-newList.insertAt("michael", 3);
+// newList.insertAt("michael", 3);
 // console.log(newList.find('Helo'));
 
 // console.log(newList);
@@ -263,3 +265,22 @@ function displayValues(ll) {
 // }
 
 // console.log(thirdEnd(newList));
+
+// function middle(ll) {
+//   let count = 0;
+//   let currNode = ll.head;
+//   while(currNode !== null) {
+//     currNode = currNode.next;
+//     count++;
+//   }
+//   let halfCount = Math.ceil(count/2);
+//   count = 0;
+//   currNode = ll.head;
+//   while(count !== halfCount -1) {
+//     currNode = currNode.next;
+//     count++;
+//   }
+//   return currNode.value;
+// }
+
+// console.log(middle(newList));
