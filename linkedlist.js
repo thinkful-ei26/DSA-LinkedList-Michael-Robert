@@ -438,21 +438,21 @@ function displayValues(ll) {
 
 
 
-// function cycle(ll) {
-//   let tortoise = ll.head;
-//   let hare = ll.head;
-//   while (hare && hare.next) {
-//     tortoise = tortoise.next;
-//     hare = hare.next.next;
-//     if(tortoise === hare){
-//       return true;
-//     }
-//   }
-//   return false;
-// }
+function cycle(ll) {
+  let tortoise = ll.head;
+  let hare = ll.head;
+  while (hare && hare.next) {
+    tortoise = tortoise.next;
+    hare = hare.next.next;
+    if(tortoise === hare){
+      return true;
+    }
+  }
+  return false;
+}
 
 
-// console.log(cycle(testList));
+console.log(cycle(testList));
 
 
 
